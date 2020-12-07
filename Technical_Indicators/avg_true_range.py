@@ -8,7 +8,7 @@ yf.pdr_override()
 import datetime as dt 
 
 # input
-symbol = 'AAPL'
+symbol = 'NIO'
 start = dt.date.today() - dt.timedelta(days = 365*2)
 end = dt.date.today()
 
@@ -47,7 +47,7 @@ dfc = df.copy()
 dfc['VolumePositive'] = dfc['Open'] < dfc['Adj Close']
 #dfc = dfc.dropna()
 dfc = dfc.reset_index()
-dfc['Date'] = mdates.date2num(dfc['Date'].astype(dt.date))
+dfc['Date'] = mdates.date2num(dfc['Date'].tolist())
 from mplfinance.original_flavor import candlestick_ohlc
 
 fig = plt.figure(figsize=(14,7))

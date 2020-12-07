@@ -11,7 +11,7 @@ now = dt.datetime.now()
 
 stock = input("Enter the stock symbol: ")
 
-while stock != "done":
+while stock != "quit":
 
     df = pdr.get_data_yahoo(stock, start, now)
     
@@ -55,7 +55,7 @@ while stock != "done":
 
     
     for index in range(len(pivots)):
-        print(str(pivots[index])+": "+str(dates[index]))
+        print(str(pivots[index])+": "+str(dates[index].date()))
         
         plt.plot_date([dates[index], dates[index]+timeD],
         [pivots[index], pivots[index]], linestyle = "-", linewidth = 2, marker = ",")
